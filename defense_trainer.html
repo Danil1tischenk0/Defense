@@ -1,0 +1,1950 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Підготовка до захисту диплома · Тищенко Д.В.</title>
+<style>
+  :root {
+    --bg: #0f1419;
+    --bg-card: #1a2028;
+    --bg-card-hover: #232b35;
+    --bg-elevated: #232b35;
+    --border: #2a3441;
+    --border-strong: #3a4555;
+    --text: #e8eef5;
+    --text-muted: #9ba8b8;
+    --text-dim: #6b7785;
+    --accent: #5eb3f5;
+    --accent-strong: #3a9eed;
+    --accent-bg: rgba(94, 179, 245, 0.1);
+    --success: #5dd39e;
+    --success-bg: rgba(93, 211, 158, 0.12);
+    --warning: #f5b769;
+    --warning-bg: rgba(245, 183, 105, 0.12);
+    --danger: #ef6b6b;
+    --danger-bg: rgba(239, 107, 107, 0.12);
+    --purple: #b794f6;
+    --purple-bg: rgba(183, 148, 246, 0.12);
+    --radius: 10px;
+    --radius-sm: 6px;
+    --radius-lg: 16px;
+    --shadow: 0 1px 3px rgba(0,0,0,0.2), 0 4px 12px rgba(0,0,0,0.15);
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #f5f7fa;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f9fafb;
+      --bg-elevated: #ffffff;
+      --border: #e5e9ef;
+      --border-strong: #d1d7e0;
+      --text: #1a2028;
+      --text-muted: #5a6573;
+      --text-dim: #8a96a5;
+      --accent: #2c7be5;
+      --accent-strong: #1e63cc;
+      --accent-bg: rgba(44, 123, 229, 0.08);
+      --success: #2ea66c;
+      --success-bg: rgba(46, 166, 108, 0.1);
+      --warning: #d97706;
+      --warning-bg: rgba(217, 119, 6, 0.1);
+      --danger: #dc2626;
+      --danger-bg: rgba(220, 38, 38, 0.08);
+      --purple: #7c3aed;
+      --purple-bg: rgba(124, 58, 237, 0.08);
+      --shadow: 0 1px 2px rgba(0,0,0,0.05), 0 2px 8px rgba(0,0,0,0.06);
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 15px;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+  .layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    min-height: 100vh;
+  }
+  /* SIDEBAR */
+  .sidebar {
+    background: var(--bg-card);
+    border-right: 1px solid var(--border);
+    padding: 24px 16px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  .sidebar-header {
+    padding: 0 8px 20px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 16px;
+  }
+  .sidebar-title {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-dim);
+    margin-bottom: 4px;
+  }
+  .sidebar-subtitle {
+    font-size: 14px;
+    color: var(--text);
+    font-weight: 500;
+  }
+  .days-left-badge {
+    margin-top: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    background: var(--warning-bg);
+    color: var(--warning);
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .nav-section {
+    margin-bottom: 20px;
+  }
+  .nav-section-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-dim);
+    padding: 8px 12px;
+    font-weight: 600;
+  }
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: var(--radius-sm);
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.15s;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    font-family: inherit;
+  }
+  .nav-item:hover { background: var(--bg-card-hover); color: var(--text); }
+  .nav-item.active {
+    background: var(--accent-bg);
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .nav-item-icon {
+    width: 20px;
+    text-align: center;
+    font-size: 16px;
+  }
+  /* MAIN CONTENT */
+  .main {
+    padding: 32px 40px 80px;
+    max-width: 1100px;
+    width: 100%;
+  }
+  .page-header {
+    margin-bottom: 32px;
+  }
+  .page-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+  .page-subtitle {
+    font-size: 16px;
+    color: var(--text-muted);
+  }
+  .section { display: none; }
+  .section.active { display: block; animation: fadeIn 0.3s ease; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  /* DASHBOARD */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .stat-value {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  .stat-meta {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+  .progress-bar {
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 10px;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--success));
+    transition: width 0.4s ease;
+    border-radius: 3px;
+  }
+  /* CARDS */
+  .info-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 16px;
+  }
+  .card-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card-icon {
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-bg);
+    color: var(--accent);
+    border-radius: var(--radius-sm);
+    font-size: 16px;
+  }
+  /* Q&A */
+  .qa-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .qa-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: border-color 0.15s;
+  }
+  .qa-item.checked { border-color: var(--success); background: var(--success-bg); }
+  .qa-question {
+    padding: 14px 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    user-select: none;
+  }
+  .qa-question:hover { background: var(--bg-card-hover); }
+  .qa-checkbox {
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--border-strong);
+    border-radius: 6px;
+    flex-shrink: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+    transition: all 0.15s;
+    background: var(--bg-elevated);
+  }
+  .qa-checkbox.checked {
+    background: var(--success);
+    border-color: var(--success);
+  }
+  .qa-checkbox.checked::after {
+    content: "✓";
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .qa-question-content {
+    flex: 1;
+  }
+  .qa-number {
+    font-size: 11px;
+    color: var(--text-dim);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 2px;
+  }
+  .qa-question-text {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.4;
+  }
+  .qa-toggle {
+    color: var(--text-dim);
+    font-size: 18px;
+    transition: transform 0.2s;
+    margin-top: 1px;
+  }
+  .qa-item.open .qa-toggle { transform: rotate(180deg); }
+  .qa-answer {
+    display: none;
+    padding: 0 18px 18px 52px;
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .qa-item.open .qa-answer { display: block; }
+  .qa-answer p { margin-bottom: 10px; }
+  .qa-answer strong { color: var(--text); font-weight: 600; }
+  .qa-answer .highlight {
+    background: var(--accent-bg);
+    color: var(--accent);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+  .answer-tip {
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: var(--accent-bg);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    color: var(--text);
+  }
+  .answer-tip strong { color: var(--accent); }
+  .answer-warning {
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: var(--warning-bg);
+    border-left: 3px solid var(--warning);
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+  }
+  .answer-warning strong { color: var(--warning); }
+  /* FILTERS */
+  .filters {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .filter-btn {
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text-muted);
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.15s;
+    font-weight: 500;
+  }
+  .filter-btn:hover { color: var(--text); }
+  .filter-btn.active {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+  }
+  .filter-count {
+    margin-left: auto;
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+  /* DAY CARDS */
+  .day-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    margin-bottom: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .day-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--accent);
+  }
+  .day-card.completed::before { background: var(--success); }
+  .day-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .day-number {
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .day-title {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .day-time {
+    font-size: 13px;
+    color: var(--text-muted);
+    padding: 4px 10px;
+    background: var(--bg-elevated);
+    border-radius: 12px;
+  }
+  .day-desc {
+    color: var(--text-muted);
+    margin-bottom: 14px;
+    font-size: 14px;
+  }
+  .task-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .task-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  .task-item .qa-checkbox {
+    width: 18px;
+    height: 18px;
+  }
+  .task-item .qa-checkbox.checked::after { font-size: 11px; }
+  .task-text {
+    flex: 1;
+    color: var(--text);
+  }
+  .task-item.done .task-text {
+    text-decoration: line-through;
+    color: var(--text-dim);
+  }
+  /* SPEECH */
+  .speech-section {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin-bottom: 16px;
+  }
+  .speech-block {
+    margin-bottom: 20px;
+    padding-left: 16px;
+    border-left: 3px solid var(--border);
+  }
+  .speech-block.intro { border-color: var(--accent); }
+  .speech-block.problem { border-color: var(--warning); }
+  .speech-block.solution { border-color: var(--success); }
+  .speech-block.outcome { border-color: var(--purple); }
+  .speech-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-dim);
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .speech-time {
+    font-size: 11px;
+    color: var(--accent);
+    margin-left: 8px;
+  }
+  .speech-text {
+    color: var(--text);
+    font-size: 14.5px;
+    line-height: 1.7;
+  }
+  /* NUMBERS */
+  .numbers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .number-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    position: relative;
+  }
+  .number-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+  .number-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 2px;
+  }
+  .number-desc {
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+  /* WARNING TILES */
+  .warning-tile {
+    background: var(--danger-bg);
+    border: 1px solid var(--danger);
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    margin-bottom: 10px;
+  }
+  .warning-tile-title {
+    color: var(--danger);
+    font-weight: 700;
+    margin-bottom: 4px;
+    font-size: 14px;
+  }
+  .warning-tile-text {
+    font-size: 13.5px;
+    color: var(--text);
+  }
+  /* MOBILE */
+  .mobile-toggle {
+    display: none;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 100;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 18px;
+  }
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; }
+    .sidebar {
+      position: fixed;
+      width: 280px;
+      transform: translateX(-100%);
+      z-index: 50;
+      transition: transform 0.25s;
+      box-shadow: var(--shadow);
+    }
+    .sidebar.open { transform: translateX(0); }
+    .mobile-toggle { display: block; }
+    .main { padding: 60px 16px 80px; }
+    .page-title { font-size: 22px; }
+    .qa-answer { padding-left: 18px; }
+  }
+  /* TIMER */
+  .timer-section {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  .timer-display {
+    font-size: 56px;
+    font-weight: 700;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+    margin: 16px 0;
+  }
+  .timer-controls {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    padding: 8px 18px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.15s;
+  }
+  .btn:hover { background: var(--accent-strong); }
+  .btn-secondary { background: var(--bg-elevated); color: var(--text); border: 1px solid var(--border); }
+  .btn-secondary:hover { background: var(--border); }
+  /* RESET */
+  .reset-section {
+    margin-top: 40px;
+    padding: 16px 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--text-dim); }
+</style>
+</head>
+<body>
+
+<button class="mobile-toggle" onclick="toggleSidebar()" aria-label="Меню">☰</button>
+
+<div class="layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-title">Захист диплома</div>
+      <div class="sidebar-subtitle">Тищенко Д. В.</div>
+      <div class="days-left-badge" id="daysLeftBadge">⏱ Залишилось: 5 днів</div>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-section-title">Огляд</div>
+      <button class="nav-item active" data-section="dashboard">
+        <span class="nav-item-icon">📊</span><span>Прогрес</span>
+      </button>
+      <button class="nav-item" data-section="plan">
+        <span class="nav-item-icon">🗓️</span><span>План на 5 днів</span>
+      </button>
+      <button class="nav-item" data-section="speech">
+        <span class="nav-item-icon">🎤</span><span>Текст доповіді</span>
+      </button>
+      <button class="nav-item" data-section="numbers">
+        <span class="nav-item-icon">🔢</span><span>Цифри для пам'яті</span>
+      </button>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-section-title">Питання комісії</div>
+      <button class="nav-item" data-section="theory">
+        <span class="nav-item-icon">📘</span><span>Теоретичні</span>
+      </button>
+      <button class="nav-item" data-section="practice">
+        <span class="nav-item-icon">📈</span><span>Аналітичні</span>
+      </button>
+      <button class="nav-item" data-section="recs">
+        <span class="nav-item-icon">💡</span><span>Про пропозиції</span>
+      </button>
+      <button class="nav-item" data-section="hard">
+        <span class="nav-item-icon">⚠️</span><span>Складні / каверзні</span>
+      </button>
+      <button class="nav-item" data-section="general">
+        <span class="nav-item-icon">🎓</span><span>Загальні маркетинг</span>
+      </button>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-section-title">Підготовка</div>
+      <button class="nav-item" data-section="rules">
+        <span class="nav-item-icon">✅</span><span>Як відповідати</span>
+      </button>
+      <button class="nav-item" data-section="timer">
+        <span class="nav-item-icon">⏰</span><span>Таймер відповідей</span>
+      </button>
+      <button class="nav-item" data-section="dayof">
+        <span class="nav-item-icon">🎯</span><span>День захисту</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- DASHBOARD -->
+    <section id="dashboard" class="section active">
+      <div class="page-header">
+        <h1 class="page-title">Прогрес підготовки</h1>
+        <p class="page-subtitle">«Маркетингова діяльність ТОВ «Бєлко Логістікс» в умовах воєнного стану»</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Загальний прогрес</div>
+          <div class="stat-value" id="totalProgress">0%</div>
+          <div class="progress-bar"><div class="progress-fill" id="totalProgressBar" style="width: 0%"></div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Опрацьовано питань</div>
+          <div class="stat-value"><span id="qDone">0</span>/<span id="qTotal">0</span></div>
+          <div class="stat-meta">Відмічайте, коли впевнено відповідаєте</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Виконано задач</div>
+          <div class="stat-value"><span id="tDone">0</span>/<span id="tTotal">0</span></div>
+          <div class="stat-meta">З плану підготовки</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">До захисту</div>
+          <div class="stat-value" id="bigDays">5 днів</div>
+          <div class="stat-meta" id="dayOfWeek">Підготовка триває</div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <h2 class="card-title"><span class="card-icon">📋</span>Що в тренажері</h2>
+        <p style="color: var(--text-muted); margin-bottom: 12px;">Це інструмент для підготовки до захисту дипломної роботи. Все працює офлайн — прогрес зберігається у браузері.</p>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
+          <li style="font-size: 14px;">📌 <strong>30+ питань</strong> із готовими відповідями за 5 категоріями</li>
+          <li style="font-size: 14px;">📌 <strong>Покроковий план на 5 днів</strong> з конкретними задачами</li>
+          <li style="font-size: 14px;">📌 <strong>Готовий текст доповіді на 8 хвилин</strong> з таймінгом</li>
+          <li style="font-size: 14px;">📌 <strong>Ключові цифри</strong> для запам'ятовування</li>
+          <li style="font-size: 14px;">📌 <strong>Таймер відповідей</strong> — тренуйте 60-секундні відповіді</li>
+          <li style="font-size: 14px;">📌 <strong>Чек-лист дня захисту</strong> — що взяти, що сказати</li>
+        </ul>
+      </div>
+
+      <div class="info-card">
+        <h2 class="card-title"><span class="card-icon">🎯</span>Рекомендована стратегія</h2>
+        <p style="color: var(--text); margin-bottom: 10px;">За 5 днів реально вийти на впевнений рівень. Логіка така:</p>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 14px;">
+          <li>🟢 <strong>Дні 1–2:</strong> Опрацюйте всі питання у тренажері — позначайте галочкою те, що знаєте впевнено</li>
+          <li>🟡 <strong>День 3:</strong> Вивчіть напам'ять цифри й текст доповіді. Прорепетируйте перед дзеркалом 3 рази</li>
+          <li>🟠 <strong>День 4:</strong> Тренуйте відповіді з таймером (60 сек). Прорепетируйте доповідь перед родичем</li>
+          <li>🔵 <strong>День 5:</strong> Відпочинок, фінальне повторення слабких місць, підготовка одягу й документів</li>
+        </ul>
+      </div>
+
+      <div class="reset-section">
+        <div>
+          <strong>Скинути прогрес</strong>
+          <div style="font-size: 13px; color: var(--text-muted);">Видалить усі ваші позначки</div>
+        </div>
+        <button class="btn btn-secondary" onclick="resetProgress()">Скинути все</button>
+      </div>
+    </section>
+
+    <!-- PLAN -->
+    <section id="plan" class="section">
+      <div class="page-header">
+        <h1 class="page-title">План підготовки на 5 днів</h1>
+        <p class="page-subtitle">Структуровано за пріоритетом. Відмічайте виконані задачі.</p>
+      </div>
+      <div id="planContainer"></div>
+    </section>
+
+    <!-- SPEECH -->
+    <section id="speech" class="section">
+      <div class="page-header">
+        <h1 class="page-title">Текст доповіді на 8 хвилин</h1>
+        <p class="page-subtitle">Готова структура за принципом «Проблема → Аналіз → Рішення → Ефект»</p>
+      </div>
+
+      <div class="info-card" style="border-color: var(--accent);">
+        <h2 class="card-title"><span class="card-icon">💡</span>Як користуватися</h2>
+        <p style="color: var(--text); font-size: 14px;">Не зачитуйте дослівно. Опрацюйте логіку, проговоріть своїми словами 5–7 разів. Ціль — говорити вільно, дивлячись на комісію, а не в папір. Загальний час — близько 8 хвилин.</p>
+      </div>
+
+      <div class="speech-section">
+        <div class="speech-block intro">
+          <div class="speech-label">1. Вітання та представлення<span class="speech-time">~30 сек</span></div>
+          <p class="speech-text">Шановна голово та члени екзаменаційної комісії! Вашій увазі пропонується кваліфікаційна робота на тему «Маркетингова діяльність підприємства транспортно-експедиційних послуг в умовах воєнного стану на прикладі ТОВ «Бєлко Логістікс»». Науковий керівник — доктор економічних наук, професор Стрій Любов Олексіївна.</p>
+        </div>
+
+        <div class="speech-block intro">
+          <div class="speech-label">2. Актуальність<span class="speech-time">~60 сек</span></div>
+          <p class="speech-text">Актуальність теми зумовлена тим, що повномасштабне вторгнення докорінно змінило логістичну карту України. Морські порти тривалий час не функціонували, традиційні маршрути виявилися заблокованими, вартість перевезень суттєво зросла. У таких умовах роль транспортно-експедиційних компаній виходить далеко за межі простого перевезення вантажів — вони стали ключовою ланкою у збереженні зовнішньоекономічних зв'язків країни. Водночас на ринку логістики у воєнний час маркетинг перестає бути просто інструментом продажів і перетворюється на спосіб формування довіри та утримання клієнтської бази в умовах постійних змін.</p>
+        </div>
+
+        <div class="speech-block intro">
+          <div class="speech-label">3. Мета, об'єкт, предмет<span class="speech-time">~40 сек</span></div>
+          <p class="speech-text">Метою роботи є теоретичне обґрунтування та розробка практичних рекомендацій щодо вдосконалення маркетингової діяльності ТОВ «Бєлко Логістікс» в умовах воєнного стану. Об'єктом дослідження є процеси формування та реалізації маркетингової діяльності підприємства. Предметом — теоретико-методичні та прикладні аспекти її вдосконалення.</p>
+        </div>
+
+        <div class="speech-block problem">
+          <div class="speech-label">4. Об'єкт дослідження — ТОВ «Бєлко Логістікс»<span class="speech-time">~60 сек</span></div>
+          <p class="speech-text">ТОВ «Бєлко Логістікс» — одеська транспортно-експедиційна компанія, що спеціалізується на чотирьох основних напрямах: митному оформленні — це 38% доходу, логістиці електромобілів із Китаю — 28%, морських контейнерних перевезеннях — 18% і транспортно-експедиційних послугах — 10%. Підприємство є членом FIATA та Асоціації міжнародних експедиторів України. У штаті — спеціалісти з міжнародними дипломами FIATA, а керівниця має понад 20 років досвіду у морській логістиці.</p>
+        </div>
+
+        <div class="speech-block problem">
+          <div class="speech-label">5. Аналіз фінансової динаміки<span class="speech-time">~60 сек</span></div>
+          <p class="speech-text">За результатами аналізу фінансових показників за 2021–2025 роки видно три фази розвитку. У 2022 році дохід впав з 1 240 до 980 тисяч гривень — це падіння на 21% через початок повномасштабної війни. Однак у 2023–2025 роках відбулося стійке відновлення: до 2025 року дохід зріс до 2 950 тисяч гривень, чистий прибуток — з 38 до 318 тисяч гривень, а рентабельність продажів — з 3,9% до 10,8%. Це підтверджує здатність підприємства адаптуватися та використовувати нові ринкові можливості.</p>
+        </div>
+
+        <div class="speech-block problem">
+          <div class="speech-label">6. STEP і SWOT — ключові висновки<span class="speech-time">~60 сек</span></div>
+          <p class="speech-text">STEP-аналіз показав, що ключовими факторами впливу є зростання вимог клієнтів до прозорості сервісу, цифровізація митних процедур, відновлення портового вантажообігу та політичні ризики воєнного стану. SWOT-аналіз виявив сильні сторони — професійну експертизу, членство у FIATA, нішеву спеціалізацію на EV-логістиці. Слабкі сторони — це насамперед недостатня формалізація маркетингової системи: відсутність CRM, несистемний контент-маркетинг, маркетингові витрати лише 68,5 тисяч гривень у 2025 році — це менше 2,4% від доходу.</p>
+        </div>
+
+        <div class="speech-block solution">
+          <div class="speech-label">7. Запропоновані рішення<span class="speech-time">~90 сек</span></div>
+          <p class="speech-text">На основі аналізу розроблено системний комплекс із семи заходів цифрового маркетингу. Перше — модернізація сайту і SEO-оптимізація з посадковими сторінками під кожну ключову послугу. Друге — впровадження CRM-системи для управління клієнтською базою, фіксації джерел заявок і автоматичних нагадувань для повторних контактів. Третє — контент-маркетинг: експертні статті про митне законодавство, кордони, EV-логістику. Четверте — активізація комунікацій у LinkedIn та Facebook для B2B-аудиторії. П'яте — щомісячна email-розсилка для клієнтів. Шосте — підготовка кейсів виконаних перевезень. Сьоме — digital-аналітика через Google Analytics і KPI-моніторинг. Сукупний бюджет — 120 тисяч гривень, що становить близько 4,1% доходу 2025 року. Реалізація запланована поетапно протягом 6 місяців.</p>
+        </div>
+
+        <div class="speech-block outcome">
+          <div class="speech-label">8. Економічна ефективність<span class="speech-time">~60 сек</span></div>
+          <p class="speech-text">Для оцінки ефективності розраховано три сценарії. Песимістичний передбачає приріст доходу на 8%, базовий — на 15%, оптимістичний — на 22%. За базовим сценарієм прогнозний дохід зросте до 3 392,5 тис. грн, чистий прибуток — до 379,9 тис. грн, приріст прибутку становитиме 61,9 тис. грн. Розрахований ROMI першого року — 51,6%. Однак ключова цінність — у дворічному горизонті, де ROMI зростає до 88,8%, оскільки сайт, CRM і контентна база працюють із накопичувальним ефектом.</p>
+        </div>
+
+        <div class="speech-block outcome">
+          <div class="speech-label">9. Висновок і подяка<span class="speech-time">~30 сек</span></div>
+          <p class="speech-text">Таким чином, мету кваліфікаційної роботи досягнуто. Запропоновані рекомендації мають прикладну спрямованість, відповідають масштабу підприємства і можуть бути впроваджені у господарську практику ТОВ «Бєлко Логістікс» для підвищення конкурентоспроможності та фінансової стійкості. Дякую за увагу. Готовий відповідати на запитання.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- NUMBERS -->
+    <section id="numbers" class="section">
+      <div class="page-header">
+        <h1 class="page-title">Цифри для пам'яті</h1>
+        <p class="page-subtitle">Вивчіть напам'ять — комісія любить точні дані</p>
+      </div>
+
+      <div class="info-card">
+        <h2 class="card-title"><span class="card-icon">💰</span>Фінансові показники 2021–2025</h2>
+        <div class="numbers-grid">
+          <div class="number-card">
+            <div class="number-label">Дохід 2021</div>
+            <div class="number-value">1 240 тис. грн</div>
+            <div class="number-desc">Докризовий рівень</div>
+          </div>
+          <div class="number-card">
+            <div class="number-label">Дохід 2022 (мінімум)</div>
+            <div class="number-value">980 тис. грн</div>
+            <div class="number-desc">Падіння на 21% через війну</div>
+          </div>
+          <div class="number-card">
+            <div class="number-label">Дохід 2025</div>
+            <div class="number-value">2 950 тис. грн</div>
+            <div class="number-desc">Зростання у 3 рази від 2022</div>
+          </div>
+          <div class="number-card">
+            <div class="number-label">Чистий прибуток 2025</div>
+            <div class="number-value">318 тис. грн</div>
+            <div class="number-desc">Проти 38 тис. у 2022</div>
+          </div>
+          <div class="number-card">
+            <div class="number-label">Рентабельність продажів</div>
+            <div class="number-value">10,8%</div>
+            <div class="number-desc">У 2025, проти 3,9% у 2022</div>
+          </div>
+          <div class="number-card">
+            <div class="number-label">Маркетингові витрати 2025</div>
+            <div class="number-value">68,5 тис. грн</div>
+            <div class="number-desc">~2,3% від доходу</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <h2 class="card-title"><span class="card-icon">📊</span>Структура доходу за послугами</h2>
+        <div class="numbers-grid">
+          <div class="number-card"><div class="number-label">Митне оформлення</div><div class="number-value">38%</div><div class="number-desc">Найбільша частка</div></div>
+          <div class="number-card"><div class="number-label">EV-логістика з Китаю</div><div class="number-value">28%</div><div class="number-desc">Нішева спеціалізація</div></div>
+          <div class="number-card"><div class="number-label">Морські контейнери</div><div class="number-value">18%</div><div class="number-desc">Традиційний напрям</div></div>
+          <div class="number-card"><div class="number-label">Транспортно-експ. послуги</div><div class="number-value">10%</div><div class="number-desc">Базова послуга</div></div>
+          <div class="number-card"><div class="number-label">ЗЕД + страхування</div><div class="number-value">6%</div><div class="number-desc">Додаткові послуги</div></div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <h2 class="card-title"><span class="card-icon">🎯</span>Прогнозні показники (запропоновані заходи)</h2>
+        <div class="numbers-grid">
+          <div class="number-card"><div class="number-label">Бюджет на маркетинг</div><div class="number-value">120 тис. грн</div><div class="number-desc">~4,1% доходу 2025</div></div>
+          <div class="number-card"><div class="number-label">Песимістичний +8%</div><div class="number-value">3 186 тис. грн</div><div class="number-desc">Дохід / ROMI ≈ 21,8%</div></div>
+          <div class="number-card"><div class="number-label">Базовий +15%</div><div class="number-value">3 392 тис. грн</div><div class="number-desc">Дохід / ROMI ≈ 51,6%</div></div>
+          <div class="number-card"><div class="number-label">Оптимістичний +22%</div><div class="number-value">3 599 тис. грн</div><div class="number-desc">Дохід / ROMI ≈ 79,9%</div></div>
+          <div class="number-card"><div class="number-label">Приріст прибутку (баз.)</div><div class="number-value">61,9 тис. грн</div><div class="number-desc">До 379,9 тис. грн всього</div></div>
+          <div class="number-card"><div class="number-label">ROMI за 2 роки</div><div class="number-value">88,8%</div><div class="number-desc">Інфраструктурний ефект</div></div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <h2 class="card-title"><span class="card-icon">🏢</span>Про підприємство</h2>
+        <div class="numbers-grid">
+          <div class="number-card"><div class="number-label">Досвід керівниці</div><div class="number-value">20+ років</div><div class="number-desc">У морській логістиці</div></div>
+          <div class="number-card"><div class="number-label">Локація</div><div class="number-value">Одеса</div><div class="number-desc">Поблизу морських портів</div></div>
+          <div class="number-card"><div class="number-label">Членство</div><div class="number-value">FIATA, АМЕУ</div><div class="number-desc">Профільні асоціації</div></div>
+          <div class="number-card"><div class="number-label">Конкуренти</div><div class="number-value">4 основних</div><div class="number-desc">UTS, Сі-Логістік, DSV, K+N</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THEORY -->
+    <section id="theory" class="section">
+      <div class="page-header">
+        <h1 class="page-title">Теоретичні питання</h1>
+        <p class="page-subtitle">Що комісія може запитати про методологію, моделі, концепції</p>
+      </div>
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">Усі</button>
+        <button class="filter-btn" data-filter="unchecked">Невивчені</button>
+        <button class="filter-btn" data-filter="checked">Вивчені</button>
+        <span class="filter-count" id="theoryCount"></span>
+      </div>
+      <div class="qa-list" id="theoryList"></div>
+    </section>
+
+    <!-- PRACTICE -->
+    <section id="practice" class="section">
+      <div class="page-header">
+        <h1 class="page-title">Аналітичні питання</h1>
+        <p class="page-subtitle">Про дослідження конкретного підприємства, цифри, динаміку</p>
+      </div>
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">Усі</button>
+        <button class="filter-btn" data-filter="unchecked">Невивчені</button>
+        <button class="filter-btn" data-filter="checked">Вивчені</button>
+        <span class="filter-count" id="practiceCount"></span>
+      </div>
+      <div class="qa-list" id="practiceList"></div>
+    </section>
+
+    <!-- RECOMMENDATIONS -->
+    <section id="recs" class="section">
+      <div class="page-header">
+        <h1 class="page-title">Питання про пропозиції</h1>
+        <p class="page-subtitle">Третій розділ — найбільш «улюблений» для комісії. Готуйтесь захищати кожну рекомендацію.</p>
+      </div>
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">Усі</button>
+        <button class="filter-btn" data-filter="unchecked">Невивчені</button>
+        <button class="filter-btn" data-filter="checked">Вивчені</button>
+        <span class="filter-count" id="recsCount"></span>
+      </div>
+      <div class="qa-list" id="recsList"></div>
+    </section>
+
+    <!-- HARD -->
+    <section id="hard" class="section">
+      <div class="page-header">
+        <h1 class="page-title">Складні / каверзні питання</h1>
+        <p class="page-subtitle">Питання-«пастки», на які варто бути готовим</p>
+      </div>
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">Усі</button>
+        <button class="filter-btn" data-filter="unchecked">Невивчені</button>
+        <button class="filter-btn" data-filter="checked">Вивчені</button>
+        <span class="filter-count" id="hardCount"></span>
+      </div>
+      <div class="qa-list" id="hardList"></div>
+    </section>
+
+    <!-- GENERAL -->
+    <section id="general" class="section">
+      <div class="page-header">
+        <h1 class="page-title">Загальні питання з маркетингу</h1>
+        <p class="page-subtitle">Базові знання, які перевіряє екзаменаційна комісія</p>
+      </div>
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">Усі</button>
+        <button class="filter-btn" data-filter="unchecked">Невивчені</button>
+        <button class="filter-btn" data-filter="checked">Вивчені</button>
+        <span class="filter-count" id="generalCount"></span>
+      </div>
+      <div class="qa-list" id="generalList"></div>
+    </section>
+
+    <!-- RULES -->
+    <section id="rules" class="section">
+      <div class="page-header">
+        <h1 class="page-title">Як правильно відповідати</h1>
+        <p class="page-subtitle">Універсальні правила, які працюють на будь-яке питання</p>
+      </div>
+
+      <div class="info-card">
+        <h2 class="card-title"><span class="card-icon">⭐</span>Формула ідеальної відповіді (60–90 сек)</h2>
+        <ol style="padding-left: 20px; line-height: 1.9; color: var(--text);">
+          <li><strong>Подяка / кивок:</strong> «Дякую за питання» (1 сек, дає час подумати)</li>
+          <li><strong>Коротка теза:</strong> Однією фразою — головна відповідь</li>
+          <li><strong>2–3 аргументи:</strong> Розкриття з посиланням на роботу</li>
+          <li><strong>Приклад з «Бєлко Логістікс»:</strong> Конкретна цифра або факт</li>
+          <li><strong>Висновок:</strong> «Саме тому в роботі...» / «Це обґрунтовує...»</li>
+        </ol>
+      </div>
+
+      <div class="info-card">
+        <h2 class="card-title"><span class="card-icon">✅</span>Що робити завжди</h2>
+        <ul style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 8px;">
+          <li>✓ <strong>Слухайте питання до кінця.</strong> Не перебивайте. Якщо не дочули — попросіть повторити.</li>
+          <li>✓ <strong>Зробіть паузу 2–3 секунди</strong> перед відповіддю. Це нормально, це показує — ви думаєте.</li>
+          <li>✓ <strong>Дивіться на того, хто запитав</strong>, але час від часу обводьте поглядом усю комісію.</li>
+          <li>✓ <strong>Говоріть впевнено</strong>, навіть якщо не на 100% знаєте — це ваша робота, ви автор.</li>
+          <li>✓ <strong>Закінчуйте відповідь чітко.</strong> Не повисайте на півслові. «Дякую» наприкінці допомагає.</li>
+          <li>✓ <strong>Використовуйте слова з роботи:</strong> «нішеве позиціонування», «комплекс 7Р», «ROMI», «STEP-аналіз». Це показує, що ви орієнтуєтесь.</li>
+        </ul>
+      </div>
+
+      <div class="info-card">
+        <h2 class="card-title"><span class="card-icon">❌</span>Чого НЕ робити</h2>
+        <ul style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 8px;">
+          <li>✗ <strong>Не сперечайтеся з комісією.</strong> Навіть якщо вважаєте, що ви праві. Скажіть: «Це слушна думка, я обов'язково врахую у подальшій роботі».</li>
+          <li>✗ <strong>Не вигадуйте цифри.</strong> Краще: «Це питання у роботі детально не розглядалося, але припускаю, що...»</li>
+          <li>✗ <strong>Не використовуйте слова-паразити:</strong> «ну», «короче», «типу», «як би». Краще пауза.</li>
+          <li>✗ <strong>Не бубоніть.</strong> Артикулюйте, говоріть гучно, не з'їдайте закінчення слів.</li>
+          <li>✗ <strong>Не починайте з «я думаю»</strong> — пом'якшує. Краще: «У роботі обґрунтовано...»</li>
+          <li>✗ <strong>Не дивіться весь час у текст.</strong> Контакт очима з комісією — обов'язково.</li>
+        </ul>
+      </div>
+
+      <div class="info-card">
+        <h2 class="card-title"><span class="card-icon">🆘</span>Аварійні фрази, якщо «застрягли»</h2>
+        <ul style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 10px;">
+          <li style="padding: 10px; background: var(--accent-bg); border-radius: var(--radius-sm); font-size: 14px;">«У межах даного дослідження це питання детально не розглядалося, однак моя позиція з цього приводу така...»</li>
+          <li style="padding: 10px; background: var(--accent-bg); border-radius: var(--radius-sm); font-size: 14px;">«Дякую за питання, воно справді важливе. Дозвольте відповісти з кількох позицій...»</li>
+          <li style="padding: 10px; background: var(--accent-bg); border-radius: var(--radius-sm); font-size: 14px;">«Це слушне зауваження, я обов'язково врахую його у подальшій науковій діяльності. У роботі ж мій акцент був на...»</li>
+          <li style="padding: 10px; background: var(--accent-bg); border-radius: var(--radius-sm); font-size: 14px;">«Дозвольте уточнити: чи правильно я зрозумів, що питання стосується...?»</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TIMER -->
+    <section id="timer" class="section">
+      <div class="page-header">
+        <h1 class="page-title">Таймер тренування</h1>
+        <p class="page-subtitle">Тренуйте 60-секундні відповіді — найкращий формат для комісії</p>
+      </div>
+
+      <div class="timer-section">
+        <div style="font-size: 14px; color: var(--text-muted);" id="timerStatus">Виберіть час і натисніть «Старт»</div>
+        <div class="timer-display" id="timerDisplay">01:00</div>
+        <div class="timer-controls">
+          <button class="btn btn-secondary" onclick="setTimer(30)">30 сек</button>
+          <button class="btn btn-secondary" onclick="setTimer(60)">60 сек</button>
+          <button class="btn btn-secondary" onclick="setTimer(90)">90 сек</button>
+          <button class="btn btn-secondary" onclick="setTimer(120)">2 хв</button>
+          <button class="btn" id="startBtn" onclick="toggleTimer()">▶ Старт</button>
+          <button class="btn btn-secondary" onclick="resetTimer()">⟲ Скинути</button>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <h2 class="card-title"><span class="card-icon">🎯</span>Як тренуватися</h2>
+        <ol style="padding-left: 20px; line-height: 2; color: var(--text);">
+          <li>Зайдіть у будь-який розділ з питаннями, виберіть питання випадково (закрите)</li>
+          <li>Запустіть таймер на 60 сек</li>
+          <li>Спробуйте відповісти вголос, не дивлячись на відповідь</li>
+          <li>Перевірте — порівняйте з готовою відповіддю</li>
+          <li>Повторіть кілька разів, поки не відповідатимете вкладаючись у час</li>
+        </ol>
+      </div>
+
+      <div class="info-card">
+        <h2 class="card-title"><span class="card-icon">⏱</span>Орієнтири за часом</h2>
+        <ul style="list-style: none; padding-left: 0; line-height: 1.8;">
+          <li>📌 <strong>30 сек</strong> — короткі прямі питання («що таке ROMI?»)</li>
+          <li>📌 <strong>60 сек</strong> — стандартні питання (більшість)</li>
+          <li>📌 <strong>90 сек</strong> — складні відповіді з прикладом і висновком</li>
+          <li>📌 <strong>2 хв</strong> — максимум. Більше — комісія втомлюється</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- DAY OF DEFENSE -->
+    <section id="dayof" class="section">
+      <div class="page-header">
+        <h1 class="page-title">День захисту: чек-лист</h1>
+        <p class="page-subtitle">Усе, що треба зробити та взяти із собою</p>
+      </div>
+
+      <div class="info-card">
+        <h2 class="card-title"><span class="card-icon">🌅</span>Зранку</h2>
+        <ul class="task-list" id="morningList"></ul>
+      </div>
+
+      <div class="info-card">
+        <h2 class="card-title"><span class="card-icon">💼</span>Взяти із собою</h2>
+        <ul class="task-list" id="bringList"></ul>
+      </div>
+
+      <div class="info-card">
+        <h2 class="card-title"><span class="card-icon">🎤</span>Безпосередньо перед захистом</h2>
+        <ul class="task-list" id="beforeList"></ul>
+      </div>
+
+      <div class="info-card">
+        <h2 class="card-title"><span class="card-icon">⚡</span>Якщо нервуєте</h2>
+        <ul style="list-style: none; padding-left: 0; line-height: 1.8;">
+          <li>🧘 <strong>Дихайте «4-7-8»:</strong> вдих 4 сек, затримка 7 сек, видих 8 сек. Повторити 3 рази.</li>
+          <li>🤝 <strong>Стисніть кулаки на 5 сек, потім розтисніть</strong> — знімає напругу в руках.</li>
+          <li>💧 <strong>Тримайте склянку води поруч</strong> — ковток допомагає при сухості в роті.</li>
+          <li>👀 <strong>Якщо забули слово — подивіться на «дружнього» члена комісії</strong>, той, хто посміхається.</li>
+          <li>🎯 <strong>Пам'ятайте:</strong> комісія НЕ хоче вас «завалити». Вони бачать сотні студентів і знають, що ви нервуєте.</li>
+          <li>💪 <strong>Ви знаєте свою роботу краще за будь-кого</strong> — ви її написали.</li>
+        </ul>
+      </div>
+
+      <div class="warning-tile">
+        <div class="warning-tile-title">⚠️ Не забути головне</div>
+        <div class="warning-tile-text">Захист — це не іспит. Це <strong>презентація вашого дослідження</strong>. Ви знаєте предмет краще, ніж комісія, бо вони не читали роботу так детально. Поводьтеся як експерт, який ділиться результатами своєї праці.</div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+// ============ DATA ============
+const THEORY_Q = [
+  {
+    q: "Що таке маркетингова діяльність і які її особливості у сфері транспортно-експедиційних послуг?",
+    a: `<p>Маркетингова діяльність — це <strong>системна робота підприємства з виявлення потреб ринку, формування ціннісної пропозиції та її просування з метою задоволення клієнтів і досягнення цілей організації</strong>.</p>
+        <p>Особливості у сфері транспортно-експедиційних послуг:</p>
+        <p>• <span class="highlight">Нематеріальність:</span> клієнт не може заздалегідь «побачити» якість послуги. Він оцінює надійність через репутацію, рекомендації, якість комунікації.</p>
+        <p>• <span class="highlight">Висока залежність від людського фактора:</span> навіть з CRM і GPS-моніторингом сервісну цінність створюють менеджери, логісти, митники.</p>
+        <p>• <span class="highlight">B2B-характер:</span> рішення приймають раціонально, потрібні кейси, сертифікати, експертний контент, а не масова реклама.</p>
+        <p>• <span class="highlight">Залежність від зовнішніх ризиків:</span> воєнні дії, митні правила, тарифи, кордони.</p>`,
+    tip: "Ключова теза: маркетинг ТЕП — це <strong>побудова довіри</strong>, а не просто продажі."
+  },
+  {
+    q: "Що таке модель 7Р і чим вона відрізняється від класичної 4Р?",
+    a: `<p>Класична модель <strong>4Р</strong> (Product, Price, Place, Promotion) розроблена Маккарті в 1960-х для матеріальних товарів.</p>
+        <p>Розширена модель <strong>7Р</strong> додає три елементи, критичні для сфери послуг:</p>
+        <p>1. <strong>People (персонал)</strong> — кваліфікація працівників, які створюють послугу</p>
+        <p>2. <strong>Process (процес)</strong> — стандартизація надання послуги, SLA, CRM</p>
+        <p>3. <strong>Physical evidence (матеріальні докази)</strong> — сайт, сертифікати, кейси, документи — те, що компенсує нематеріальність послуги</p>
+        <p>Для транспортно-експедиційного бізнесу саме ці три елементи формують довіру: клієнт обирає експедитора за досвідом персоналу, прозорістю процесів і доказами надійності.</p>`,
+    tip: "Якщо запитають «чому саме 7Р, а не 4Р?» — наводьте приклад: <strong>клієнт обирає експедитора за репутацією менеджера й кейсами</strong>, а не за рекламою."
+  },
+  {
+    q: "Що таке STEP-аналіз і які фактори він включає для логістичної галузі?",
+    a: `<p><strong>STEP-аналіз</strong> (або PEST, у деяких джерелах PESTEL) — метод аналізу макросередовища підприємства. Розшифровка:</p>
+        <p>• <span class="highlight">S — Social</span> (соціальні): зростання вимог клієнтів до прозорості, швидкості, надійності</p>
+        <p>• <span class="highlight">T — Technological</span> (технологічні): цифровізація митних процедур, CRM, TMS, GPS-моніторинг</p>
+        <p>• <span class="highlight">E — Economic</span> (економічні): зростання імпорту, інфляція, валютні коливання, вартість пального</p>
+        <p>• <span class="highlight">P — Political</span> (політичні): воєнний стан, регуляторні зміни, ризики для портової інфраструктури</p>
+        <p>У роботі STEP-аналіз застосовано для виявлення зовнішніх чинників, які впливають на «Бєлко Логістікс». Це дозволило обґрунтувати, чому цифровий маркетинг є стратегічно важливим.</p>`,
+    tip: "Розширена версія — <strong>PESTEL</strong>, додає E (environmental) та L (legal). У роботі використано STEP."
+  },
+  {
+    q: "Що таке SWOT-аналіз і навіщо він потрібен?",
+    a: `<p><strong>SWOT-аналіз</strong> — це метод стратегічного планування, який дозволяє оцінити чотири складові:</p>
+        <p>• <span class="highlight">S — Strengths</span> (сильні сторони): внутрішні переваги</p>
+        <p>• <span class="highlight">W — Weaknesses</span> (слабкі сторони): внутрішні обмеження</p>
+        <p>• <span class="highlight">O — Opportunities</span> (можливості): зовнішні шанси</p>
+        <p>• <span class="highlight">T — Threats</span> (загрози): зовнішні ризики</p>
+        <p>Сильні сторони та слабкі — це <strong>внутрішнє середовище</strong>; можливості та загрози — <strong>зовнішнє</strong>. На основі поєднання факторів формуються 4 типи стратегій: SO (атака), ST (захист), WO (розвиток), WT (виживання).</p>`,
+    tip: "Якщо запитають «яку стратегію ви обрали?» — відповідь: <strong>стратегія SO</strong> (використовуємо нішеву експертизу EV-логістики для захоплення зростаючого ринку імпорту)."
+  },
+  {
+    q: "Що таке ROMI і як цей показник розраховується?",
+    a: `<p><strong>ROMI (Return on Marketing Investment)</strong> — показник рентабельності маркетингових інвестицій. Він демонструє, скільки прибутку приніс кожен витрачений на маркетинг гривневий.</p>
+        <p><strong>Формула:</strong> ROMI = (Приріст чистого прибутку від маркетингу / Маркетингові витрати) × 100%</p>
+        <p><strong>У роботі розраховано три сценарії:</strong></p>
+        <p>• Песимістичний: 26,1 / 120 × 100% = <span class="highlight">21,8%</span></p>
+        <p>• Базовий: 61,9 / 120 × 100% = <span class="highlight">51,6%</span></p>
+        <p>• Оптимістичний: 95,9 / 120 × 100% = <span class="highlight">79,9%</span></p>
+        <p>Для дворічного періоду ROMI зростає до <strong>88,8%</strong>, оскільки інфраструктурні витрати (CRM, сайт) дають накопичувальний ефект.</p>`,
+    tip: "Якщо ROMI > 100%, то інвестиція окупається з прибутком. Менше — це не означає, що проєкт поганий, особливо для довгострокових інвестицій."
+  },
+  {
+    q: "Які етапи формування маркетингової стратегії підприємства?",
+    a: `<p>Класичний процес формування маркетингової стратегії включає <strong>6 етапів</strong>:</p>
+        <p>1. <strong>Аналіз середовища</strong> — STEP-аналіз, SWOT-аналіз, аналіз за Портером (5 сил)</p>
+        <p>2. <strong>Сегментація ринку</strong> — виділення груп клієнтів за критеріями</p>
+        <p>3. <strong>Вибір цільових сегментів</strong> — кому продавати</p>
+        <p>4. <strong>Позиціонування</strong> — як хочемо сприйматися</p>
+        <p>5. <strong>Розробка комплексу маркетингу 7Р</strong></p>
+        <p>6. <strong>Реалізація та контроль</strong> — KPI, ROMI, корекція</p>
+        <p>У роботі реалізовано саме такий підхід для «Бєлко Логістікс».</p>`,
+    tip: "Запам'ятайте принцип <strong>STP-маркетингу: Segmentation → Targeting → Positioning</strong>."
+  },
+  {
+    q: "Що таке нішеве позиціонування і чому воно ефективне для малих компаній?",
+    a: `<p><strong>Нішеве позиціонування</strong> — це стратегія концентрації на вузькому сегменті ринку, де компанія може стати експертом і досягти лідерства.</p>
+        <p>Переваги для малих компаній:</p>
+        <p>• Уникнення прямої конкуренції з гігантами (DSV, K+N)</p>
+        <p>• Накопичення глибокої експертизи у вузькій сфері</p>
+        <p>• Можливість встановлювати вищі ціни через спеціалізацію</p>
+        <p>• Лояльність клієнтів, які цінують експертизу</p>
+        <p>Для «Бєлко Логістікс» нішею є <strong>логістика електромобілів із Китаю + митне оформлення</strong>. У сегменті EV-логістики компанія є одним із небагатьох спеціалізованих операторів, що захищає від конкуренції з боку великих гравців.</p>`,
+    tip: "Альтернативи позиціонуванню: за ціною, за широтою послуг, за географією. У роботі обрано — <strong>за експертизою у ніші</strong>."
+  },
+  {
+    q: "Що таке CRM-система і навіщо вона потрібна?",
+    a: `<p><strong>CRM (Customer Relationship Management)</strong> — система управління взаємовідносинами з клієнтами. Це програмний продукт, який централізовано зберігає інформацію про клієнтів і взаємодію з ними.</p>
+        <p><strong>Основні функції CRM:</strong></p>
+        <p>• База контактів і компаній</p>
+        <p>• Фіксація джерела заявки (звідки прийшов клієнт)</p>
+        <p>• Воронка продажів — статуси угод</p>
+        <p>• Автоматичні нагадування для менеджерів</p>
+        <p>• Історія комунікацій (дзвінки, email, переписка)</p>
+        <p>• Звіти по ефективності каналів і менеджерів</p>
+        <p>Для «Бєлко Логістікс» CRM дозволить уникати втрати клієнтів, бачити, які канали приносять найбільше заявок, і автоматизувати повторні контакти.</p>`,
+    tip: "Популярні CRM на ринку: <strong>Bitrix24, KeyCRM, Pipedrive, HubSpot</strong>. Для малого бізнесу часто обирають KeyCRM (українська)."
+  },
+  {
+    q: "Що таке SEO і як воно працює?",
+    a: `<p><strong>SEO (Search Engine Optimization)</strong> — пошукова оптимізація. Це комплекс заходів для підвищення позицій сайту у видачі Google за релевантними запитами.</p>
+        <p><strong>SEO ділиться на три напрями:</strong></p>
+        <p>• <strong>Технічне SEO</strong> — швидкість завантаження, мобільна версія, структура URL</p>
+        <p>• <strong>On-page SEO</strong> — тексти, заголовки, мета-теги, ключові слова</p>
+        <p>• <strong>Off-page SEO</strong> — посилання з інших сайтів (backlinks), репутація</p>
+        <p>Для логістичної компанії SEO означає, що клієнти, які шукають у Google «митне оформлення електромобіля» або «доставка контейнерів Одеса», знаходять саме «Бєлко Логістікс».</p>`,
+    tip: "Ефект SEO відкладений — перші результати через <strong>3–6 місяців</strong>, тому це довгострокова інвестиція."
+  }
+];
+
+const PRACTICE_Q = [
+  {
+    q: "Чому ви обрали саме ТОВ «Бєлко Логістікс» як об'єкт дослідження?",
+    a: `<p>Кілька причин обрання саме цього підприємства:</p>
+        <p>1. <strong>Доступність матеріалу:</strong> компанія надала фінансову звітність, операційні дані та інформацію про маркетингову діяльність за 2021–2025 роки.</p>
+        <p>2. <strong>Типовість:</strong> «Бєлко Логістікс» — представник сегменту малого і середнього транспортно-експедиційного бізнесу, що становить більшість гравців ринку.</p>
+        <p>3. <strong>Релевантність теми:</strong> компанія активно адаптується до умов воєнного стану, що дозволяє показати реальні маркетингові виклики на практиці.</p>
+        <p>4. <strong>Нішева спеціалізація:</strong> EV-логістика з Китаю — цікавий сучасний сегмент, який дозволяє аналізувати тренди.</p>
+        <p>5. <strong>Прикладна цінність:</strong> розроблені рекомендації можуть бути реально впроваджені.</p>`
+  },
+  {
+    q: "Яка динаміка ключових показників компанії за 2021–2025 рр.?",
+    a: `<p>За досліджуваний період виділено три фази:</p>
+        <p><strong>2021 — докризовий рівень:</strong> дохід 1 240 тис. грн, чистий прибуток 82 тис. грн, рентабельність продажів 6,6%.</p>
+        <p><strong>2022 — кризовий спад:</strong> дохід знизився на 21% (до 980 тис. грн), прибуток впав до 38 тис. грн, рентабельність — до 3,9%. Причини: блокування морських портів, розрив логістичних ланцюгів, переорієнтація вантажопотоків.</p>
+        <p><strong>2023–2025 — стійке відновлення:</strong> дохід 2025 р. — 2 950 тис. грн (зростання у 3 рази від мінімуму), чистий прибуток — 318 тис. грн, рентабельність — 10,8%, рентабельність власного капіталу — 36,5% (проти 19,3% у 2021).</p>
+        <p>Це свідчить про <strong>успішну адаптацію</strong> підприємства до умов воєнного стану.</p>`
+  },
+  {
+    q: "Хто основні конкуренти «Бєлко Логістікс»?",
+    a: `<p>У роботі виділено <strong>4 основних конкурентів</strong> на різних рівнях:</p>
+        <p>• <strong>UTS</strong> — великий український транспортний оператор з широкою мережею</p>
+        <p>• <strong>Сі-Логістік</strong> — середній гравець з міцними позиціями в Одеському регіоні</p>
+        <p>• <strong>DSV</strong> — данський міжнародний логістичний оператор з представництвом в Україні</p>
+        <p>• <strong>Kuehne+Nagel</strong> — швейцарська транснаціональна компанія, глобальний лідер</p>
+        <p>Великі міжнародні оператори переважають за масштабом і ресурсами, але «Бєлко Логістікс» має переваги: <strong>індивідуальний підхід, гнучкість, нижча вартість порівняно з міжнародниками, спеціалізація на EV-логістиці</strong>.</p>`
+  },
+  {
+    q: "Чому маркетингові витрати у 2022 році впали?",
+    a: `<p>У 2022 році маркетингові витрати скоротилися до 14,2 тис. грн — це <strong>кризова економія</strong>, спричинена кількома факторами:</p>
+        <p>• Загальне падіння доходу на 21% — підприємство змушене скорочувати всі необов'язкові витрати</p>
+        <p>• Невизначеність ринку — нелогічно інвестувати у просування, коли клієнти не можуть отримати послугу через блокування портів</p>
+        <p>• Перехід у режим «виживання» — пріоритет на операційну стабільність, а не на маркетингову експансію</p>
+        <p>Це типова реакція малого бізнесу на кризу. Однак уже з 2023 року маркетингові витрати почали системно зростати: <strong>32,8 → 54,0 → 68,5 тис. грн</strong>, що свідчить про повернення до активної маркетингової політики.</p>`
+  },
+  {
+    q: "Які слабкі сторони ви виявили у маркетинговій діяльності компанії?",
+    a: `<p>Виявлено <strong>5 ключових слабких місць:</strong></p>
+        <p>1. <strong>Відсутність CRM-системи</strong> — клієнтська база зберігається в Excel і головах менеджерів, що створює ризики втрати інформації.</p>
+        <p>2. <strong>Несистемний контент-маркетинг</strong> — компанія не публікує експертний контент, хоча має досвід і знання у нішевих сегментах.</p>
+        <p>3. <strong>Слабка digital-аналітика</strong> — не вимірюються ROMI, конверсія, вартість ліда.</p>
+        <p>4. <strong>Низький рівень маркетингових витрат</strong> — лише 2,3% від доходу (стандарт для B2B — 3–5%).</p>
+        <p>5. <strong>Залежність від рекомендацій</strong> — більшість клієнтів приходять «з вуст в уста», а не з цифрових каналів. Це робить підприємство уразливим у разі втрати ключового партнера.</p>`
+  },
+  {
+    q: "Які сильні сторони має «Бєлко Логістікс»?",
+    a: `<p>У роботі виділено <strong>5 ключових сильних сторін:</strong></p>
+        <p>1. <strong>Професійна експертиза:</strong> керівниця має понад 20 років досвіду в морській логістиці.</p>
+        <p>2. <strong>Членство у профільних асоціаціях:</strong> FIATA та АМЕУ (Асоціація міжнародних експедиторів України). Це формує довіру клієнтів.</p>
+        <p>3. <strong>Спеціалізація на EV-логістиці:</strong> підприємство є одним із небагатьох операторів, які професійно займаються імпортом електромобілів із Китаю — швидко зростаючий сегмент.</p>
+        <p>4. <strong>Вигідне географічне розташування:</strong> Одеса — близькість до морських портів, ключових для імпорту.</p>
+        <p>5. <strong>Комплексний сервіс:</strong> митне оформлення + перевезення + страхування + ЗЕД-консультації в одному пакеті. Зручно для клієнта, який не хоче працювати з кількома підрядниками.</p>`
+  },
+  {
+    q: "Які методи дослідження ви використовували?",
+    a: `<p>У роботі застосовано <strong>комплекс методів</strong>, кожен — для конкретної задачі:</p>
+        <p>• <strong>Аналіз та синтез</strong> — для систематизації теоретичних концепцій</p>
+        <p>• <strong>Порівняльний аналіз</strong> — для оцінки конкурентного середовища</p>
+        <p>• <strong>Статистичний метод</strong> — для вивчення динаміки фінансових показників</p>
+        <p>• <strong>STEP-аналіз</strong> — для дослідження макросередовища</p>
+        <p>• <strong>SWOT-аналіз</strong> — для діагностики внутрішнього і зовнішнього середовища</p>
+        <p>• <strong>Метод експертної оцінки</strong> — для характеристики конкурентних переваг</p>
+        <p>• <strong>Розрахунково-аналітичний метод</strong> — для визначення економічної ефективності рекомендацій</p>
+        <p>• <strong>Сценарне прогнозування</strong> — для оцінки впливу заходів у трьох варіантах</p>`
+  },
+  {
+    q: "Чи можна назвати «Бєлко Логістікс» прибутковим підприємством?",
+    a: `<p><strong>Так, у 2025 році підприємство є стабільно прибутковим.</strong></p>
+        <p>Підтвердження:</p>
+        <p>• Чистий прибуток — 318 тис. грн (у 8 разів більше, ніж у кризовому 2022 році)</p>
+        <p>• Рентабельність продажів — 10,8% (це вище середнього для логістичної галузі, де норма 5–8%)</p>
+        <p>• Рентабельність власного капіталу — 36,5%, що значно перевищує банківські депозити чи безризикові інвестиції</p>
+        <p>• Стійке зростання доходу 4 роки поспіль</p>
+        <p>Однак <strong>прибуток ще обмежений малим масштабом</strong>. Запропоновані маркетингові заходи дозволять у базовому сценарії підвищити прибуток до 379,9 тис. грн (+61,9 тис. грн), що для малого підприємства є істотним приростом.</p>`
+  }
+];
+
+const RECS_Q = [
+  {
+    q: "Які конкретні заходи ви пропонуєте для удосконалення маркетингу?",
+    a: `<p>Запропоновано <strong>системний комплекс із 7 заходів</strong> цифрового маркетингу:</p>
+        <p>1. <strong>Модернізація сайту + SEO</strong> — оновлення структури, окремі посадкові сторінки під кожну послугу, оптимізація під пошукові запити</p>
+        <p>2. <strong>Контент-маркетинг</strong> — публікація експертних статей про митне законодавство, EV-логістику, тенденції перевезень</p>
+        <p>3. <strong>Соціальні мережі</strong> — активна присутність у LinkedIn (для B2B-аудиторії) і Facebook</p>
+        <p>4. <strong>Email-маркетинг</strong> — щомісячна розсилка клієнтам і партнерам з оглядами та кейсами</p>
+        <p>5. <strong>Впровадження CRM-системи</strong> — центральний інструмент управління продажами та маркетингом</p>
+        <p>6. <strong>Кейси та відгуки</strong> — підготовка матеріалів про виконані перевезення для соціального доказу</p>
+        <p>7. <strong>Digital-аналітика</strong> — Google Analytics, UTM-мітки, регулярний моніторинг KPI</p>
+        <p>Ключова цінність — <strong>системність</strong>: усі заходи доповнюють одне одного.</p>`
+  },
+  {
+    q: "Чому ви обрали бюджет саме 120 тис. грн, а не більше або менше?",
+    a: `<p>Обґрунтування саме такого бюджету:</p>
+        <p>• <strong>Це 4,1% від доходу 2025 року</strong> — у B2B-логістиці нормальний рівень маркетингових витрат становить 3–5%. Тобто бюджет відповідає галузевим стандартам.</p>
+        <p>• <strong>Це майже подвоєння поточних витрат</strong> (з 68,5 до 120 тис. грн) — істотно, але не шокуюче. Не вимагає кредитів чи зовнішнього фінансування.</p>
+        <p>• <strong>Розмір достатній для системного підходу</strong>: 30 тис. — CRM, 30 тис. — сайт+SEO, 20 тис. — контент, 15 тис. — соцмережі, 10 тис. — email, 8 тис. — кейси, 7 тис. — аналітика.</p>
+        <p>• <strong>Менший бюджет</strong> (наприклад, 80 тис.) не дозволив би запровадити всі заходи одночасно і втратив би ефект системності.</p>
+        <p>• <strong>Більший</strong> (200+ тис.) — занадто ризиковано для малого бізнесу при невизначеності ринку.</p>`,
+    tip: "Якщо запитають про «золоте правило»: <strong>10% від нового доходу можна реінвестувати у маркетинг</strong> — для збалансованого зростання."
+  },
+  {
+    q: "Чому ви вважаєте, що ці заходи дадуть приріст саме 8–22%?",
+    a: `<p>Діапазон 8–22% обґрунтований <strong>галузевими бенчмарками</strong> і логікою сценаріїв:</p>
+        <p><strong>Песимістичний (+8%)</strong> базується на досвіді B2B-компаній, які впроваджують базовий SEO без активної реклами. Зазвичай SEO дає 5–10% приросту трафіку у перший рік.</p>
+        <p><strong>Базовий (+15%)</strong> — за умови комплексного впровадження всіх 7 заходів. Це підтверджується середньогалузевими даними: компанії, які системно інвестують у digital, отримують 12–18% приросту.</p>
+        <p><strong>Оптимістичний (+22%)</strong> — за умови активного зростання ринку імпорту, особливо EV. Кінцевий результат залежатиме від:</p>
+        <p>• Динаміки імпорту електромобілів</p>
+        <p>• Безпекової ситуації у портах</p>
+        <p>• Якості реалізації заходів</p>
+        <p><strong>Реалістична оцінка — базовий сценарій</strong>.</p>`,
+    tip: "Якщо запитають «звідки взяли цифри?» — кажіть: <strong>«На основі галузевих орієнтирів та оцінки специфіки підприємства»</strong>. Не вигадуйте конкретні джерела."
+  },
+  {
+    q: "Чому ROMI першого року не дуже високий, якщо проєкт ефективний?",
+    a: `<p>ROMI першого року <strong>51,6% — реалістично, але дійсно нижче, ніж може здатися</strong>. Причина — особливості запропонованих заходів:</p>
+        <p>• <strong>Сайт, CRM, SEO</strong> — це <strong>інфраструктурні інвестиції</strong>, а не реклама. Вони мають <strong>відкладений ефект</strong>: SEO починає приносити трафік через 3–6 місяців, CRM — після навчання персоналу.</p>
+        <p>• <strong>Контентна база</strong> — стаття, написана у 2026 році, продовжуватиме приваблювати клієнтів у 2027 і 2028.</p>
+        <p>• <strong>База клієнтів у CRM</strong> накопичується і дає більше повторних продажів з кожним наступним роком.</p>
+        <p>У <strong>дворічному горизонті</strong> ROMI зростає до <strong>88,8%</strong>, оскільки витрати на інфраструктуру не повторюються, а ефект — продовжується.</p>`,
+    tip: "Ключова теза: <strong>«Це не реклама, це інвестиція у маркетингову інфраструктуру»</strong> — звучить професійно."
+  },
+  {
+    q: "Як ви будете контролювати ефективність впровадження ваших заходів?",
+    a: `<p>У роботі запропоновано <strong>систему KPI</strong> для регулярного моніторингу:</p>
+        <p><strong>Маркетингові KPI:</strong></p>
+        <p>• Кількість заявок із сайту (ціль: +25–30%)</p>
+        <p>• Конверсія сайту (% відвідувачів, які залишили заявку)</p>
+        <p>• CAC (Customer Acquisition Cost) — вартість залучення клієнта</p>
+        <p>• Кількість підписників email-розсилки і open rate</p>
+        <p>• Відвідуваність із SEO (органічний трафік)</p>
+        <p><strong>Фінансові KPI:</strong></p>
+        <p>• ROMI — щоквартально</p>
+        <p>• Приріст доходу від нових клієнтів</p>
+        <p>• Частка повторних замовлень (ціль: з 45% до 55%)</p>
+        <p>Звітність — щомісячна для оперативних KPI, щоквартальна — для стратегічних.</p>`
+  },
+  {
+    q: "Як ваші пропозиції впливають на персонал? Чи готова команда?",
+    a: `<p>Це важливе питання, тому що формальне впровадження CRM без реальної роботи менеджерів — основний ризик.</p>
+        <p><strong>Підхід до підготовки команди:</strong></p>
+        <p>1. <strong>Поетапне навчання</strong> — спочатку 2–3 ключові менеджери, потім решта</p>
+        <p>2. <strong>Призначення відповідального</strong> — у малому бізнесі це часто керівниця або найдосвідченіший менеджер</p>
+        <p>3. <strong>Чітке закріплення обов'язків:</strong> хто заповнює CRM, хто пише контент, хто веде соцмережі</p>
+        <p>4. <strong>Залучення зовнішніх фахівців</strong> — SEO-спеціаліст, копірайтер можуть бути на аутсорсі</p>
+        <p>5. <strong>KPI для менеджерів</strong> — заповнення картки клієнта в CRM має бути обов'язковим, інакше — преміювання не виплачується</p>
+        <p>Початкові заходи (сайт, контент) не вимагають великих змін у щоденній роботі команди.</p>`
+  },
+  {
+    q: "Які ризики реалізації ваших пропозицій?",
+    a: `<p>У роботі виділено <strong>5 основних ризиків</strong>:</p>
+        <p>1. <strong>Нестабільність портової інфраструктури</strong> через воєнний стан → диверсифікація напрямів послуг</p>
+        <p>2. <strong>Зміни митного законодавства</strong> → постійний моніторинг + швидка адаптація контенту</p>
+        <p>3. <strong>Коливання попиту на електромобілі</strong> → не концентруватися лише на EV-ніші, розвивати інші напрями</p>
+        <p>4. <strong>Зростання рекламної конкуренції онлайн</strong> → акцент на якість контенту, а не лише на бюджет реклами</p>
+        <p>5. <strong>Формальне впровадження CRM</strong> без реального використання → навчання + KPI для менеджерів</p>
+        <p>Ключова стратегія мінімізації — <strong>поетапне впровадження</strong> протягом 6 місяців, а не одночасне, з регулярною оцінкою результатів і коригуванням.</p>`
+  },
+  {
+    q: "Як ваші рекомендації відрізняються від того, що компанія робить зараз?",
+    a: `<p>Зараз компанія використовує переважно <strong>«рекомендаційно-репутаційну модель»</strong>:</p>
+        <p>• Клієнти приходять «з вуст в уста»</p>
+        <p>• Маркетинг — несистемний, ситуативний</p>
+        <p>• Немає вимірюваних KPI</p>
+        <p>• Цифрові канали майже не використовуються</p>
+        <p><strong>Запропонована модель — «системний цифровий маркетинг»</strong>:</p>
+        <p>• Активне залучення клієнтів онлайн (SEO, контент, реклама)</p>
+        <p>• Системна робота з базою через CRM</p>
+        <p>• Вимірюваність кожного каналу через ROMI, конверсії</p>
+        <p>• Контент як інструмент експертного позиціонування</p>
+        <p>Ключова відмінність: <strong>перехід від «реактивного» маркетингу до «проактивного»</strong>.</p>`,
+    tip: "Сильна фраза для виступу: <strong>«Перехід від рекомендаційної моделі до системного цифрового маркетингу»</strong>."
+  }
+];
+
+const HARD_Q = [
+  {
+    q: "Чому при доході 2,95 млн грн ви пропонуєте бюджет лише 120 тис.? Це менше 5%.",
+    a: `<p>Це доцільне обґрунтоване рішення, виходячи з специфіки малого бізнесу і B2B-сегменту:</p>
+        <p>1. <strong>Для B2B-логістики 3–5% — норма</strong>, а не максимум. Це не FMCG, де треба «бомбардувати» рекламою. Тут клієнт обирає раціонально.</p>
+        <p>2. <strong>120 тис. — це майже подвоєння</strong> поточних маркетингових витрат (68,5 тис.). Більш різке підвищення створило б ризики касового розриву.</p>
+        <p>3. <strong>Це бюджет ПЕРШОГО року</strong>. У наступних роках, якщо ROMI підтвердиться, бюджет можна нарощувати до 200–250 тис.</p>
+        <p>4. <strong>Бюджет збалансований за структурою</strong>: CRM, сайт, контент, аналітика. Більший бюджет без готової команди — це гроші на вітер.</p>
+        <p>Принцип: <strong>«Спочатку довести ROMI, потім масштабувати»</strong>.</p>`,
+    warning: "Можуть запитати: «А чому не 200 тис.?» — відповідь: <strong>малий бізнес не може ризикувати касовою стабільністю заради гіпотетичного приросту</strong>."
+  },
+  {
+    q: "Чому ви розглядаєте 7Р, а не сучаснішу модель 8P або digital-маркетинг-міксі?",
+    a: `<p>Дійсно, у науковій літературі є й розширені моделі (8P, 9P, SAVE), однак для даної роботи 7Р оптимальна:</p>
+        <p>1. <strong>7Р — стандарт для сфери послуг</strong>, прийнятий Chartered Institute of Marketing і широко використовується у науковій літературі.</p>
+        <p>2. <strong>Восьмий елемент (Productivity & Quality)</strong>, який додає Lovelock, фактично перетинається з Process і People, тому окремо виділяти його не критично.</p>
+        <p>3. <strong>SAVE-модель</strong> (Solution, Access, Value, Education) — це <strong>не альтернатива, а інше формулювання</strong> 4Р/7Р з перспективи клієнта.</p>
+        <p>4. <strong>Прикладна цінність:</strong> 7Р зрозуміла керівникам компанії і легко розкладається на конкретні заходи.</p>
+        <p>Тому у роботі обрано класичну модель 7Р як найбільш виправдану для аналізу транспортно-експедиційного підприємства.</p>`,
+    warning: "Якщо «причепляться» — можна додати: <strong>у подальших дослідженнях доцільно розглянути digital-marketing mix або 4C-модель (Customer, Cost, Convenience, Communication)</strong>."
+  },
+  {
+    q: "Ваша компанія є малою — чи варто витрачатися на SEO, чи краще на пряму рекламу?",
+    a: `<p>Це справедливе запитання. Аргументи на користь SEO для малого бізнесу:</p>
+        <p>1. <strong>SEO дає накопичувальний ефект.</strong> Реклама працює, поки платите, SEO — навіть після зупинки інвестицій. Для малого бізнесу це критично.</p>
+        <p>2. <strong>Для B2B-логістики Google є основним каналом пошуку</strong>. Клієнти шукають «митне оформлення Одеса», «доставка електромобілів з Китаю» — без SEO компанія невидима.</p>
+        <p>3. <strong>SEO дешевше, ніж контекстна реклама в довгостроковій перспективі.</strong> Один клік у Google Ads у логістичній ніші коштує 50–150 грн. SEO дає трафік без оплати за клік.</p>
+        <p>4. <strong>Поєднання SEO + контент</strong> формує образ експертної компанії, що важливо для B2B.</p>
+        <p>У роботі передбачено саме <strong>поєднання SEO з контент-маркетингом</strong> — це і є ефективний підхід для малого B2B.</p>`,
+    warning: "Підготуйтесь до контрпитання: «Скільки часу до перших результатів?» — відповідь: <strong>3–6 місяців для перших результатів, 9–12 для стабільного потоку трафіку</strong>."
+  },
+  {
+    q: "Чи не застаріли ваші дані до моменту захисту?",
+    a: `<p>Це слушне зауваження. Особливості роботи з даними:</p>
+        <p>1. <strong>Період дослідження — 2021–2025 рр.</strong> Це достатньо тривалий горизонт для виявлення тенденцій.</p>
+        <p>2. <strong>Дані 2025 року є найсвіжішими</strong> на момент написання роботи (2025–2026).</p>
+        <p>3. <strong>Прогноз зроблено на 2026 рік</strong> — це наступний рік після останнього звітного.</p>
+        <p>4. <strong>Методологія залишається актуальною</strong> навіть при оновленні даних. SWOT, STEP, 7Р не застарівають.</p>
+        <p>5. <strong>Висновки про необхідність цифровізації</strong> залишаються релевантними і у 2027–2028 роках. Це тренд, а не одноразовий ефект.</p>
+        <p>Якщо ситуація суттєво зміниться (наприклад, закінчиться воєнний стан), запропонована методологія дозволяє швидко переоцінити стратегію.</p>`
+  },
+  {
+    q: "Ви рекомендуєте LinkedIn, але в Україні мало B2B-аудиторії там. Як це обґрунтуєте?",
+    a: `<p>Це справедливе зауваження. Однак LinkedIn для B2B-логістики має такі особливості:</p>
+        <p>1. <strong>Цільова аудиторія</strong> — це не всі українці, а <strong>керівники імпортно-експортних компаній, логістичні менеджери</strong>. Саме вони активно використовують LinkedIn.</p>
+        <p>2. <strong>Міжнародний охват</strong> — оскільки компанія працює з імпортом з Китаю та ЄС, LinkedIn дає вихід на міжнародних партнерів.</p>
+        <p>3. <strong>Експертне позиціонування</strong> — LinkedIn ідеальний для публікації аналітичних матеріалів, кейсів, експертних думок.</p>
+        <p>4. <strong>Дешева початкова інвестиція</strong> — органічний LinkedIn (без реклами) практично безкоштовний.</p>
+        <p>У роботі LinkedIn — <strong>другорядний канал</strong> після сайту і контенту. Основну ставку зроблено на SEO і Facebook (де українська B2B-аудиторія представлена краще).</p>`,
+    tip: "Сильна теза: <strong>«LinkedIn — для експертного позиціонування і міжнародних контактів»</strong>."
+  },
+  {
+    q: "Чи вважаєте ви, що ваші рекомендації універсальні, чи це лише для «Бєлко Логістікс»?",
+    a: `<p>Тут важливо розрізняти два рівні:</p>
+        <p><strong>Універсальний рівень</strong> (підходить для більшості малих ТЕП):</p>
+        <p>• Принципи цифрового маркетингу (SEO, CRM, контент)</p>
+        <p>• Модель 7Р як інструмент аналізу</p>
+        <p>• Підхід до сценарного прогнозування</p>
+        <p>• Структура KPI</p>
+        <p><strong>Специфічний рівень</strong> (тільки для «Бєлко Логістікс»):</p>
+        <p>• Бюджет 120 тис. грн — пов'язаний із розміром доходу</p>
+        <p>• Акцент на EV-логістику з Китаю — нішева спеціалізація</p>
+        <p>• Структура заходів — адаптована під 4 ключові послуги компанії</p>
+        <p>Тому <strong>методологія є універсальною</strong>, а <strong>конкретні параметри потребують адаптації</strong> під кожне підприємство.</p>`
+  },
+  {
+    q: "Чому ви не запропонували вихід на нові ринки чи нові послуги?",
+    a: `<p>Це слушне питання. Відповідь — стратегія була свідомо <strong>сфокусованою на удосконаленні існуючого, а не диверсифікації</strong>. Причини:</p>
+        <p>1. <strong>Воєнний стан — не час для високоризикової експансії</strong>. Спочатку треба зміцнити поточні позиції.</p>
+        <p>2. <strong>У компанії є нереалізований потенціал у поточних послугах</strong> — слабкий цифровий маркетинг означає, що потенційні клієнти просто не знають про «Бєлко Логістікс».</p>
+        <p>3. <strong>Малий бізнес має фокусуватися</strong> — спроба охопити нові ринки без зміцнення поточних веде до розпорошення ресурсів.</p>
+        <p>4. <strong>У роботі згадано напрями розвитку</strong>: ЗЕД-консультації, страхування — як майбутні зони росту після впровадження маркетингової інфраструктури.</p>
+        <p>Тобто <strong>спочатку — цифровий маркетинг для існуючих послуг, потім — диверсифікація</strong>. Це послідовна стратегія, типова для малого бізнесу.</p>`
+  },
+  {
+    q: "Чи можна сказати, що ваші пропозиції — це «здоровий глузд», а не наукова робота?",
+    a: `<p>Це провокаційне питання, але на нього можна гідно відповісти.</p>
+        <p>Так, частина рекомендацій (потреба у CRM, у SEO) може здатися очевидною. Однак <strong>наукова цінність роботи полягає в:</strong></p>
+        <p>1. <strong>Систематизації:</strong> у роботі застосовано системний підхід — поєднання STEP, SWOT, 7Р, ROMI, сценарного прогнозування. Це не очевидно і потребує методологічної підготовки.</p>
+        <p>2. <strong>Кількісному обґрунтуванні:</strong> розрахунки трьох сценаріїв з конкретними цифрами доходу, прибутку, ROMI — це результат методичної роботи.</p>
+        <p>3. <strong>Адаптації теорії до специфіки галузі:</strong> у роботі показано, як саме модель 7Р працює для транспортно-експедиційних послуг, з акцентом на воєнний контекст.</p>
+        <p>4. <strong>Контекстуалізації:</strong> рекомендації прив'язані до конкретних показників, ризиків, ринкової ситуації.</p>
+        <p><strong>«Здоровий глузд» + системна методологія + обґрунтовані розрахунки = прикладна наукова робота.</strong></p>`,
+    warning: "Не сперечайтеся емоційно. Відповідайте структуровано: <strong>«Цінність — у системному підході, а не у винайденні чогось нового»</strong>."
+  }
+];
+
+const GENERAL_Q = [
+  {
+    q: "Що таке маркетинг? Дайте визначення.",
+    a: `<p><strong>Класичне визначення (Філіп Котлер):</strong></p>
+        <p>«Маркетинг — це соціальний і управлінський процес, спрямований на задоволення потреб і бажань як окремих осіб, так і груп людей за допомогою створення, пропонування та обміну товарів і послуг».</p>
+        <p><strong>Сучасне розуміння (АМА — Американська маркетингова асоціація):</strong></p>
+        <p>«Маркетинг — це діяльність, набір інститутів і процесів створення, комунікації, доставки та обміну пропозиціями, що мають цінність для клієнтів, партнерів і суспільства в цілому».</p>
+        <p><strong>Ключова ідея:</strong> маркетинг — це не просто реклама і продажі. Це управління всім ланцюгом від виявлення потреби до доставки цінності клієнту.</p>`
+  },
+  {
+    q: "Чим відрізняється маркетинг товарів від маркетингу послуг?",
+    a: `<p><strong>Ключові відмінності маркетингу послуг:</strong></p>
+        <p>1. <strong>Нематеріальність</strong> — послугу не можна «помацати», потрібні матеріальні докази (сертифікати, кейси).</p>
+        <p>2. <strong>Невіддільність від виконавця</strong> — якість залежить від конкретної людини, яка надає послугу.</p>
+        <p>3. <strong>Мінливість</strong> — кожен надає послугу трохи по-різному, тому потрібні стандарти.</p>
+        <p>4. <strong>Незберігання</strong> — послугу не можна скласти на склад. Якщо вантажівка проїхала порожньою — дохід втрачено.</p>
+        <p>5. <strong>Розширений комплекс маркетингу — 7Р</strong> (а не 4Р для товарів).</p>
+        <p>Саме тому для транспортно-експедиційних послуг особливе значення мають Process, People, Physical evidence.</p>`
+  },
+  {
+    q: "Що таке сегментація ринку? Які існують критерії?",
+    a: `<p><strong>Сегментація</strong> — поділ ринку на групи споживачів з однаковими потребами і поведінкою.</p>
+        <p><strong>Основні критерії сегментації для B2B:</strong></p>
+        <p>• <strong>Географічні:</strong> регіон, країна, місто</p>
+        <p>• <strong>Демографічні (для B2B — фірмографічні):</strong> розмір компанії, оборот, кількість співробітників</p>
+        <p>• <strong>Галузеві:</strong> сектор економіки клієнта</p>
+        <p>• <strong>Поведінкові:</strong> обсяг та регулярність замовлень, чутливість до ціни</p>
+        <p>• <strong>Психографічні:</strong> цінності, стиль ведення бізнесу</p>
+        <p>Для «Бєлко Логістікс» ключовий сегмент — <strong>малі та середні імпортери</strong>, які потребують комплексного супроводу і не мають власних логістичних відділів.</p>`
+  },
+  {
+    q: "Що таке маркетингове середовище? Які його складові?",
+    a: `<p><strong>Маркетингове середовище</strong> — сукупність факторів, які впливають на маркетингову діяльність підприємства.</p>
+        <p><strong>Складається з двох рівнів:</strong></p>
+        <p><strong>1. Мікросередовище</strong> (фактори, на які підприємство може впливати):</p>
+        <p>• Постачальники, посередники, конкуренти, клієнти, контактні аудиторії</p>
+        <p><strong>2. Макросередовище</strong> (фактори, на які підприємство впливати не може):</p>
+        <p>• Демографічні, економічні, природні, технологічні, політичні, культурні</p>
+        <p>Для аналізу макросередовища використовується STEP/PEST/PESTEL-аналіз; для мікросередовища — <strong>модель 5 сил Портера</strong>.</p>`
+  },
+  {
+    q: "Що таке життєвий цикл товару (послуги)?",
+    a: `<p><strong>Життєвий цикл товару (ЖЦТ)</strong> — концепція, яка описує послідовні фази існування товару на ринку.</p>
+        <p><strong>4 стадії ЖЦТ:</strong></p>
+        <p>1. <strong>Впровадження (Introduction)</strong> — продукт виходить на ринок, продажі повільні, витрати на маркетинг високі</p>
+        <p>2. <strong>Зростання (Growth)</strong> — швидке зростання продажів, поява конкурентів</p>
+        <p>3. <strong>Зрілість (Maturity)</strong> — стабільні продажі, посилення конкуренції, акцент на утримання</p>
+        <p>4. <strong>Спад (Decline)</strong> — падіння продажів, потрібно вирішувати: модернізувати, диверсифікувати чи вийти з ринку</p>
+        <p>Для «Бєлко Логістікс» EV-логістика — це фаза <strong>зростання</strong> (новий, активно зростаючий сегмент), а митне оформлення — <strong>зрілість</strong>.</p>`
+  },
+  {
+    q: "Які канали просування існують у B2B-маркетингу?",
+    a: `<p><strong>Основні канали B2B-просування:</strong></p>
+        <p><strong>Цифрові:</strong></p>
+        <p>• Корпоративний сайт + SEO</p>
+        <p>• Контент-маркетинг (блог, статті)</p>
+        <p>• LinkedIn для експертного позиціонування</p>
+        <p>• Email-маркетинг</p>
+        <p>• Контекстна реклама (Google Ads)</p>
+        <p><strong>Офлайн:</strong></p>
+        <p>• Галузеві виставки і конференції</p>
+        <p>• Персональні продажі (account managers)</p>
+        <p>• Рекомендаційний маркетинг (referrals)</p>
+        <p>• Партнерські програми</p>
+        <p>• Друковані спеціалізовані видання</p>
+        <p>У B2B особливо цінується <strong>раціональність повідомлення</strong>, експертність, кейси, рекомендації — а не емоційна реклама.</p>`
+  },
+  {
+    q: "Що таке цільова аудиторія? Яка цільова аудиторія у «Бєлко Логістікс»?",
+    a: `<p><strong>Цільова аудиторія</strong> — група людей або компаній, на які спрямована маркетингова діяльність підприємства.</p>
+        <p><strong>Для «Бєлко Логістікс» цільова аудиторія — це:</strong></p>
+        <p>1. <strong>Імпортери електромобілів</strong> — приватні особи та компанії, які везуть EV із Китаю</p>
+        <p>2. <strong>Малі та середні імпортно-експортні компанії</strong> — без власних логістичних відділів</p>
+        <p>3. <strong>Виробничі підприємства</strong> — потребують регулярних поставок сировини або експорту продукції</p>
+        <p>4. <strong>Торгові компанії</strong> — імпортують товари для роздрібної мережі</p>
+        <p>5. <strong>Митні брокери та логістичні агенти</strong> — як партнери і джерела рекомендацій</p>
+        <p>Усі ці групи — <strong>B2B-сегмент</strong> з раціональним підходом до вибору партнера.</p>`
+  }
+];
+
+// ============ DAYS PLAN ============
+const PLAN = [
+  {
+    day: "День 1",
+    title: "Фундамент — теорія і структура роботи",
+    time: "3–4 години",
+    desc: "Опрацюйте теоретичні і аналітичні питання. Це база, на якій тримається все інше.",
+    tasks: [
+      "Перечитати ВСТУП своєї роботи (мета, об'єкт, предмет, завдання)",
+      "Перечитати ВИСНОВКИ — там вся суть",
+      "Відмітити галочкою всі теоретичні питання у тренажері (10 шт)",
+      "Відмітити галочкою всі аналітичні питання у тренажері (8 шт)",
+      "Запам'ятати визначення: 7Р, STEP, SWOT, ROMI, CRM, SEO",
+      "Виспатись — мозку треба час засвоїти"
+    ]
+  },
+  {
+    day: "День 2",
+    title: "Цифри, дані, рекомендації",
+    time: "3–4 години",
+    desc: "Зосередьтесь на конкретиці: цифрах, динаміці, ваших пропозиціях.",
+    tasks: [
+      "Зайдіть у розділ 'Цифри для пам'яті' — повторіть до автоматизму",
+      "Опрацюйте всі питання про рекомендації (8 шт)",
+      "Перевірте складні питання — там 'мінні поля'",
+      "Випишіть на папір ВСІ ключові цифри від руки (це покращує запам'ятовування)",
+      "Подивіться на структуру таблиць у роботі: 2.1, 3.1, 3.4 — найважливіші",
+      "Перечитайте Розділ 3 повністю — це улюблений розділ комісії"
+    ]
+  },
+  {
+    day: "День 3",
+    title: "Доповідь і репетиція",
+    time: "4–5 годин",
+    desc: "Робота над презентацією перед людьми. Найважливіший день!",
+    tasks: [
+      "Прочитайте текст доповіді з тренажера 3 рази вголос",
+      "Зробіть скорочений варіант на 7–8 хв — викиньте зайве",
+      "Прорепетируйте перед дзеркалом — стежте за позою, руками",
+      "Записатися на відео і подивитися — побачите свої помилки",
+      "Прорепетируйте презентацію перед родичем/другом",
+      "Попросіть їх задати випадкові питання з тренажера"
+    ]
+  },
+  {
+    day: "День 4",
+    title: "Симуляція захисту + загальний маркетинг",
+    time: "3–4 години",
+    desc: "Тренування у режимі стресу, повторення базових знань з маркетингу.",
+    tasks: [
+      "Опрацюйте розділ 'Загальні маркетинг' (7 питань)",
+      "Використовуйте таймер: тренуйте 60-секундні відповіді",
+      "Закрийте тренажер і спробуйте відповісти на 5 випадкових питань",
+      "Запросіть когось зробити повну симуляцію: 8 хв доповідь + 3 питання",
+      "Підготуйте одяг — діловий стиль, нічого яскравого",
+      "Перевірте, чи знаєте маршрут до місця захисту, час, аудиторію"
+    ]
+  },
+  {
+    day: "День 5",
+    title: "Фінальне повторення + відпочинок",
+    time: "2–3 години",
+    desc: "Сьогодні НЕ вчити нове! Тільки повторення слабких місць.",
+    tasks: [
+      "Перегляньте 'Невивчені' питання у тренажері",
+      "Прочитайте чек-лист 'День захисту' у тренажері",
+      "Перевірте всі документи: студентський, паспорт, ручка, годинник",
+      "Лягайте спати о 22:00–23:00. Кофеїн — мінімум",
+      "Ранок: повторіть текст доповіді 1 раз вголос, але без зубріння",
+      "Не вчіть НІЧОГО нового в день захисту — це лише підвищить тривогу"
+    ]
+  }
+];
+
+// ============ DAY OF DEFENSE TASKS ============
+const MORNING_TASKS = [
+  "Прокинутися за 2,5–3 години до захисту",
+  "Снідати збалансовано: білки + повільні вуглеводи (омлет, каша). Без важкої їжі",
+  "Не пити багато кави — підсилює тремтіння",
+  "Прийняти контрастний душ — бадьорить",
+  "Одягтися у діловому стилі: сорочка/блузка, темні штани/спідниця, закриті туфлі",
+  "Не використовувати сильні парфуми",
+  "Перевірити документи: студентський, паспорт"
+];
+
+const BRING_TASKS = [
+  "Роздрукований текст доповіді (формат А4, великим шрифтом)",
+  "Папка з роботою (один екземпляр)",
+  "Відгук наукового керівника + рецензія (якщо є)",
+  "Презентація на флешці + у хмарі (Google Drive)",
+  "Ручка і блокнот для нотування питань",
+  "Пляшка води 0,5 л (не газована)",
+  "Носові хустинки",
+  "М'ятні цукерки (без запаху, нічого не вибухне в роті)",
+  "Телефон у беззвучному режимі"
+];
+
+const BEFORE_TASKS = [
+  "Прийти за 30–45 хвилин до часу захисту",
+  "Знайти туалет — мінімум один раз сходити",
+  "Перевірити, чи завантажується презентація на комп'ютері",
+  "Дихати: 4-7-8 (вдих 4с, затримка 7с, видих 8с) — 3 рази",
+  "Усміхнутися — це тригер для мозку, що все добре",
+  "Подивитися 1 хв у вікно — заземлення",
+  "Налаштуватися: «Це презентація моєї роботи, не іспит»"
+];
+
+// ============ STATE ============
+let state = {
+  checkedQ: {},
+  checkedTasks: {}
+};
+
+function loadState() {
+  try {
+    const saved = localStorage.getItem('defenseTrainer');
+    if (saved) state = JSON.parse(saved);
+  } catch(e) {}
+}
+
+function saveState() {
+  try {
+    localStorage.setItem('defenseTrainer', JSON.stringify(state));
+  } catch(e) {}
+}
+
+// ============ RENDERING ============
+function renderQList(items, container, prefix) {
+  container.innerHTML = items.map((item, idx) => {
+    const id = prefix + idx;
+    const checked = state.checkedQ[id] ? 'checked' : '';
+    return `
+      <div class="qa-item ${checked}" data-id="${id}">
+        <div class="qa-question">
+          <div class="qa-checkbox ${checked}" onclick="toggleCheck('${id}', event)"></div>
+          <div class="qa-question-content" onclick="toggleQA(this)">
+            <div class="qa-number">Питання ${idx + 1}</div>
+            <div class="qa-question-text">${item.q}</div>
+          </div>
+          <span class="qa-toggle" onclick="toggleQA(this.previousElementSibling)">⌄</span>
+        </div>
+        <div class="qa-answer">
+          ${item.a}
+          ${item.tip ? `<div class="answer-tip"><strong>💡 Підказка:</strong> ${item.tip}</div>` : ''}
+          ${item.warning ? `<div class="answer-warning"><strong>⚠️ Увага:</strong> ${item.warning}</div>` : ''}
+        </div>
+      </div>`;
+  }).join('');
+}
+
+function renderPlan() {
+  const container = document.getElementById('planContainer');
+  container.innerHTML = PLAN.map((day, idx) => {
+    const tasksHtml = day.tasks.map((task, ti) => {
+      const id = `plan_${idx}_${ti}`;
+      const checked = state.checkedTasks[id] ? 'done' : '';
+      const cls = state.checkedTasks[id] ? 'checked' : '';
+      return `
+        <li class="task-item ${checked}" onclick="toggleTask('${id}')">
+          <div class="qa-checkbox ${cls}"></div>
+          <span class="task-text">${task}</span>
+        </li>`;
+    }).join('');
+    const total = day.tasks.length;
+    const done = day.tasks.filter((_, ti) => state.checkedTasks[`plan_${idx}_${ti}`]).length;
+    const isComplete = done === total ? 'completed' : '';
+    return `
+      <div class="day-card ${isComplete}">
+        <div class="day-header">
+          <div>
+            <div class="day-number">${day.day} · ${done}/${total} виконано</div>
+            <div class="day-title">${day.title}</div>
+          </div>
+          <div class="day-time">⏱ ${day.time}</div>
+        </div>
+        <p class="day-desc">${day.desc}</p>
+        <ul class="task-list">${tasksHtml}</ul>
+      </div>`;
+  }).join('');
+}
+
+function renderDayOfTasks(tasks, container, prefix) {
+  container.innerHTML = tasks.map((task, idx) => {
+    const id = `${prefix}_${idx}`;
+    const checked = state.checkedTasks[id] ? 'done' : '';
+    const cls = state.checkedTasks[id] ? 'checked' : '';
+    return `
+      <li class="task-item ${checked}" onclick="toggleTask('${id}')">
+        <div class="qa-checkbox ${cls}"></div>
+        <span class="task-text">${task}</span>
+      </li>`;
+  }).join('');
+}
+
+// ============ INTERACTIONS ============
+function toggleQA(el) {
+  const item = el.closest('.qa-item');
+  item.classList.toggle('open');
+}
+
+function toggleCheck(id, event) {
+  if (event) event.stopPropagation();
+  state.checkedQ[id] = !state.checkedQ[id];
+  saveState();
+  const item = document.querySelector(`[data-id="${id}"]`);
+  if (item) {
+    item.classList.toggle('checked');
+    const box = item.querySelector('.qa-checkbox');
+    box.classList.toggle('checked');
+  }
+  updateStats();
+  applyFilter(document.querySelector('.filter-btn.active'));
+}
+
+function toggleTask(id) {
+  state.checkedTasks[id] = !state.checkedTasks[id];
+  saveState();
+  renderPlan();
+  renderDayOfTasks(MORNING_TASKS, document.getElementById('morningList'), 'morning');
+  renderDayOfTasks(BRING_TASKS, document.getElementById('bringList'), 'bring');
+  renderDayOfTasks(BEFORE_TASKS, document.getElementById('beforeList'), 'before');
+  updateStats();
+}
+
+function updateStats() {
+  const totalQ = THEORY_Q.length + PRACTICE_Q.length + RECS_Q.length + HARD_Q.length + GENERAL_Q.length;
+  const doneQ = Object.values(state.checkedQ).filter(Boolean).length;
+  const totalT = PLAN.reduce((acc, d) => acc + d.tasks.length, 0) + MORNING_TASKS.length + BRING_TASKS.length + BEFORE_TASKS.length;
+  const doneT = Object.values(state.checkedTasks).filter(Boolean).length;
+  document.getElementById('qDone').textContent = doneQ;
+  document.getElementById('qTotal').textContent = totalQ;
+  document.getElementById('tDone').textContent = doneT;
+  document.getElementById('tTotal').textContent = totalT;
+  const totalAll = totalQ + totalT;
+  const doneAll = doneQ + doneT;
+  const percent = totalAll > 0 ? Math.round((doneAll / totalAll) * 100) : 0;
+  document.getElementById('totalProgress').textContent = percent + '%';
+  document.getElementById('totalProgressBar').style.width = percent + '%';
+  
+  // Update section counts
+  updateCount('theoryCount', THEORY_Q, 'th_');
+  updateCount('practiceCount', PRACTICE_Q, 'pr_');
+  updateCount('recsCount', RECS_Q, 're_');
+  updateCount('hardCount', HARD_Q, 'hd_');
+  updateCount('generalCount', GENERAL_Q, 'gn_');
+}
+
+function updateCount(elId, arr, prefix) {
+  const el = document.getElementById(elId);
+  if (!el) return;
+  const done = arr.filter((_, i) => state.checkedQ[prefix + i]).length;
+  el.textContent = `${done} з ${arr.length} опрацьовано`;
+}
+
+function navigateTo(section) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById(section).classList.add('active');
+  document.querySelector(`[data-section="${section}"]`).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (window.innerWidth < 900) {
+    document.getElementById('sidebar').classList.remove('open');
+  }
+}
+
+function applyFilter(btn) {
+  if (!btn) return;
+  const section = btn.closest('.section');
+  if (!section) return;
+  section.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const filter = btn.dataset.filter;
+  section.querySelectorAll('.qa-item').forEach(item => {
+    const isChecked = item.classList.contains('checked');
+    if (filter === 'all') item.style.display = '';
+    else if (filter === 'checked') item.style.display = isChecked ? '' : 'none';
+    else if (filter === 'unchecked') item.style.display = !isChecked ? '' : 'none';
+  });
+}
+
+function resetProgress() {
+  if (confirm('Ви впевнені, що хочете скинути весь прогрес?')) {
+    state = { checkedQ: {}, checkedTasks: {} };
+    saveState();
+    location.reload();
+  }
+}
+
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+}
+
+// ============ TIMER ============
+let timerInterval = null;
+let timerSeconds = 60;
+let timerSet = 60;
+let timerRunning = false;
+
+function setTimer(sec) {
+  if (timerRunning) toggleTimer();
+  timerSet = sec;
+  timerSeconds = sec;
+  updateTimerDisplay();
+  document.getElementById('timerStatus').textContent = `Готово до старту: ${sec} сек`;
+}
+
+function updateTimerDisplay() {
+  const m = Math.floor(timerSeconds / 60);
+  const s = timerSeconds % 60;
+  document.getElementById('timerDisplay').textContent = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+}
+
+function toggleTimer() {
+  const btn = document.getElementById('startBtn');
+  if (timerRunning) {
+    clearInterval(timerInterval);
+    timerRunning = false;
+    btn.textContent = '▶ Продовжити';
+    document.getElementById('timerStatus').textContent = 'Паузу зроблено';
+  } else {
+    timerRunning = true;
+    btn.textContent = '⏸ Пауза';
+    document.getElementById('timerStatus').textContent = 'Час пішов! Відповідайте...';
+    timerInterval = setInterval(() => {
+      timerSeconds--;
+      updateTimerDisplay();
+      if (timerSeconds <= 10) document.getElementById('timerDisplay').style.color = 'var(--warning)';
+      if (timerSeconds <= 5) document.getElementById('timerDisplay').style.color = 'var(--danger)';
+      if (timerSeconds <= 0) {
+        clearInterval(timerInterval);
+        timerRunning = false;
+        btn.textContent = '▶ Старт';
+        document.getElementById('timerStatus').textContent = '⏰ Час вийшов!';
+        document.getElementById('timerDisplay').style.color = 'var(--danger)';
+        try { 
+          const audio = new AudioContext();
+          const o = audio.createOscillator();
+          o.frequency.value = 800;
+          o.connect(audio.destination);
+          o.start();
+          setTimeout(() => o.stop(), 200);
+        } catch(e) {}
+      }
+    }, 1000);
+  }
+}
+
+function resetTimer() {
+  if (timerRunning) toggleTimer();
+  timerSeconds = timerSet;
+  updateTimerDisplay();
+  document.getElementById('timerDisplay').style.color = 'var(--accent)';
+  document.getElementById('startBtn').textContent = '▶ Старт';
+  document.getElementById('timerStatus').textContent = 'Готово до старту';
+}
+
+// ============ INIT ============
+loadState();
+
+renderQList(THEORY_Q, document.getElementById('theoryList'), 'th_');
+renderQList(PRACTICE_Q, document.getElementById('practiceList'), 'pr_');
+renderQList(RECS_Q, document.getElementById('recsList'), 're_');
+renderQList(HARD_Q, document.getElementById('hardList'), 'hd_');
+renderQList(GENERAL_Q, document.getElementById('generalList'), 'gn_');
+renderPlan();
+renderDayOfTasks(MORNING_TASKS, document.getElementById('morningList'), 'morning');
+renderDayOfTasks(BRING_TASKS, document.getElementById('bringList'), 'bring');
+renderDayOfTasks(BEFORE_TASKS, document.getElementById('beforeList'), 'before');
+updateTimerDisplay();
+updateStats();
+
+document.querySelectorAll('.nav-item').forEach(n => {
+  n.addEventListener('click', () => navigateTo(n.dataset.section));
+});
+
+document.querySelectorAll('.filter-btn').forEach(b => {
+  b.addEventListener('click', () => applyFilter(b));
+});
+</script>
+</body>
+</html>
